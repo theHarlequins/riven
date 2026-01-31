@@ -1,35 +1,58 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Riven
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+A modern, cross-platform personal finance management application built with Kotlin Multiplatform and Jetpack Compose.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Features
 
-### Build and Run Android Application
+- **Multiplatform**: Native Android and iOS apps from a single codebase
+- **Envelope Budgeting**: Traditional envelope system for expense tracking
+- **Wallet Management**: Multiple wallet support with currency conversion
+- **Transaction Tracking**: Detailed transaction history and categorization
+- **Exchange Rates**: Real-time currency exchange with API integration
+- **Neumorphic UI**: Modern, tactile user interface design
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+## Tech Stack
 
-### Build and Run iOS Application
+- **Kotlin Multiplatform**: Shared business logic across platforms
+- **Jetpack Compose**: Modern UI framework for Android and iOS
+- **SQLDelight**: Type-safe SQL database with Kotlin Multiplatform support
+- **Ktor**: HTTP client for API communication
+- **Koin**: Dependency injection
+- **Coroutines**: Asynchronous programming
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+## Architecture
 
----
+The project follows a clean architecture pattern with:
+- **Data Layer**: Repository pattern with local database and API services
+- **Domain Layer**: Business logic and use cases
+- **Presentation Layer**: Compose UI components with ViewModel pattern
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## Installation
+
+### Prerequisites
+- Android Studio (for Android development)
+- Xcode (for iOS development)
+- Kotlin Multiplatform plugin
+
+### Building the Project
+
+1. Clone the repository
+2. Open in Android Studio
+3. Sync Gradle dependencies
+4. Build for target platform
+
+## Screenshots
+
+[Add screenshots of the application here]
+
+## Contributing
+
+We welcome contributions! Please read our contribution guidelines before submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+For questions or support, please open an issue or contact the development team.
