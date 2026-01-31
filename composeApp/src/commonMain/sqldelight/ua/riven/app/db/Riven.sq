@@ -1,0 +1,125 @@
+CREATE TABLE Wallet (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    currency TEXT NOT NULL,
+    balance REAL NOT NULL,
+    type TEXT NOT NULL,
+    colorHex TEXT NOT NULL DEFAULT '#607D8B'
+);
+
+CREATE TABLE ExchangeRate (
+    currency TEXT NOT NULL PRIMARY KEY,
+    rateToUah REAL NOT NULL
+);
+
+CREATE TABLE TransactionRecord (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    walletId INTEGER NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    date INTEGER NOT NULL, -- Storing as timestamp (Long)
+    envelopeId INTEGER,
+    FOREIGN KEY (walletId) REFERENCES Wallet(id) ON DELETE CASCADE,
+    FOREIGN KEY (envelopeId) REFERENCES Envelope(id) ON DELETE SET NULL
+);
+
+getAllWallets:
+SELECT *
+FROM Wallet;
+
+getWalletById:
+SELECT *
+FROM Wallet
+WHERE id = ?;
+
+insertWallet:
+INSERT INTO Wallet (name, currency, balance, type, colorHex)
+VALUES (?, ?, ?, ?, ?);
+
+getLastTransactions:
+SELECT *
+FROM TransactionRecord
+ORDER BY date DESC
+LIMIT ?;
+
+updateWalletBalance:
+UPDATE Wallet
+SET balance = balance + :amount
+WHERE id = :walletId;
+
+getRate:
+SELECT *
+FROM ExchangeRate
+WHERE currency = ?;
+
+updateRate:
+INSERT OR REPLACE INTO ExchangeRate (currency, rateToUah)
+VALUES (?, ?);
+
+CREATE TABLE Envelope (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    monthlyLimit REAL NOT NULL,
+    currentSpent REAL NOT NULL DEFAULT 0.0,
+    icon TEXT NOT NULL,
+    color TEXT NOT NULL -- Hex color
+);
+
+getEnvelopes:
+SELECT * FROM Envelope;
+
+insertEnvelope:
+INSERT INTO Envelope (name, monthlyLimit, currentSpent, icon, color)
+VALUES (?, ?, ?, ?, ?);
+
+updateEnvelopeSpent:
+UPDATE Envelope
+SET currentSpent = currentSpent + :amount
+WHERE id = :id;
+
+updateEnvelopeLimit:
+UPDATE Envelope
+SET monthlyLimit = :limit
+WHERE id = :id;
+
+resetEnvelopes:
+UPDATE Envelope SET currentSpent = 0.0;
+
+getTransactionsForWallet:
+SELECT *
+FROM TransactionRecord
+WHERE walletId = ?
+ORDER BY date DESC;
+
+getAllTransactions:
+SELECT *
+FROM TransactionRecord
+ORDER BY date DESC;
+
+insertTransaction:
+INSERT INTO TransactionRecord (walletId, amount, category, date, envelopeId)
+VALUES (?, ?, ?, ?, ?);
+
+CREATE TABLE AppSettings (
+    key TEXT NOT NULL PRIMARY KEY,
+    value REAL NOT NULL
+);
+
+getSetting:
+SELECT value FROM AppSettings WHERE key = ?;
+
+setSetting:
+INSERT OR REPLACE INTO AppSettings (key, value)
+VALUES (?, ?);
+
+getEnvelopeById:
+SELECT * FROM Envelope WHERE id = ?;
+
+getTransactionsForEnvelope:
+SELECT * FROM TransactionRecord WHERE envelopeId = ? ORDER BY date DESC;
+
+deleteWallet:
+DELETE FROM Wallet WHERE id = ?;
+
+deleteEnvelope:
+DELETE FROM Envelope WHERE id = ?;

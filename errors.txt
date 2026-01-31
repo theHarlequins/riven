@@ -1,0 +1,4 @@
+.\gradlew.bat : e: file:///C:/Users/Grisha/Documents/Pr
+    + CategoryInfo          : NotSpecified: (e: file:/ 
+e: file:///C:/Users/Grisha/Documents/Projects/Riven/com
+FAILURE: Build failed with an exception.

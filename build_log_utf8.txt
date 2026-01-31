@@ -1,0 +1,113 @@
+﻿Reusing configuration cache.
+> Task :composeApp:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :composeApp:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :composeApp:generateExpectResourceCollectorsForCommonMain UP-TO-DATE
+> Task :composeApp:preBuild UP-TO-DATE
+> Task :composeApp:generateComposeResClass UP-TO-DATE
+> Task :composeApp:copyNonXmlValueResourcesForCommonMain UP-TO-DATE
+> Task :composeApp:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :composeApp:preDebugBuild UP-TO-DATE
+> Task :composeApp:generateCommonMainRivenDatabaseInterface UP-TO-DATE
+> Task :composeApp:convertXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForAndroidDebug NO-SOURCE
+> Task :composeApp:generateDebugResValues UP-TO-DATE
+> Task :composeApp:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :composeApp:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :composeApp:generateDebugResources UP-TO-DATE
+> Task :composeApp:generateResourceAccessorsForAndroidMain NO-SOURCE
+> Task :composeApp:prepareComposeResourcesTaskForAndroidDebug NO-SOURCE
+> Task :composeApp:extractDeepLinksDebug UP-TO-DATE
+> Task :composeApp:packageDebugResources UP-TO-DATE
+> Task :composeApp:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :composeApp:parseDebugLocalResources UP-TO-DATE
+> Task :composeApp:mapDebugSourceSetPaths UP-TO-DATE
+> Task :composeApp:prepareComposeResourcesTaskForCommonMain UP-TO-DATE
+> Task :composeApp:checkDebugAarMetadata UP-TO-DATE
+> Task :composeApp:generateResourceAccessorsForCommonMain UP-TO-DATE
+> Task :composeApp:generateResourceAccessorsForAndroidDebug NO-SOURCE
+> Task :composeApp:generateActualResourceCollectorsForAndroidMain UP-TO-DATE
+> Task :composeApp:mergeDebugResources UP-TO-DATE
+> Task :composeApp:processDebugMainManifest UP-TO-DATE
+> Task :composeApp:processDebugManifest UP-TO-DATE
+> Task :composeApp:processDebugManifestForPackage UP-TO-DATE
+> Task :composeApp:processDebugResources UP-TO-DATE
+
+> Task :composeApp:compileDebugKotlinAndroid FAILED
+./gradlew : e: file:///C:/Users/Grisha/Documents/Projec
+ts/Riven/composeApp/src/commonMain/kotlin/ua/riven/app/
+ui/components/NeumorphicComponents.kt:19:37 
+Conflicting import: imported name 'Color' is ambiguous.
+строка:1 знак:1
++ ./gradlew :composeApp:compileDebugKotlinAndroid 
+--console=plain > bui ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (e: file:/ 
+   //C:/U...' is ambiguous.:String) [], RemoteExcepti  
+  on
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+e: file:///C:/Users/Grisha/Documents/Projects/Riven/com
+poseApp/src/commonMain/kotlin/ua/riven/app/ui/component
+s/NeumorphicComponents.kt:20:37 Conflicting import: 
+imported name 'Color' is ambiguous.
+e: file:///C:/Users/Grisha/Documents/Projects/Riven/com
+poseApp/src/commonMain/kotlin/ua/riven/app/ui/dashboard
+/DashboardViewModel.kt:69:36 None of the following 
+candidates is applicable:
+fun <R, T> Result<T>.map(transform: 
+(@ParameterName(...) T) -> R): Result<R>
+    [R|Contract description]
+     <
+        CallsInPlace(transform, AT_MOST_ONCE)
+    >
+fun <T, R> Array<out T>.map(transform: (T) -> R): 
+List<R>
+fun <R> ByteArray.map(transform: (Byte) -> R): List<R>
+fun <R> ShortArray.map(transform: (Short) -> R): 
+List<R>
+fun <R> IntArray.map(transform: (Int) -> R): List<R>
+fun <R> LongArray.map(transform: (Long) -> R): List<R>
+fun <R> FloatArray.map(transform: (Float) -> R): 
+List<R>
+fun <R> DoubleArray.map(transform: (Double) -> R): 
+List<R>
+fun <R> BooleanArray.map(transform: (Boolean) -> R): 
+List<R>
+fun <R> CharArray.map(transform: (Char) -> R): List<R>
+fun <T, R> Iterable<T>.map(transform: (T) -> R): 
+List<R>
+fun <K, V, R> Map<out K, V>.map(transform: 
+(Map.Entry<K, V>) -> R): List<R>
+fun <R> UIntArray.map(transform: (UInt) -> R): List<R>
+fun <R> ULongArray.map(transform: (ULong) -> R): 
+List<R>
+fun <R> UByteArray.map(transform: (UByte) -> R): 
+List<R>
+fun <R> UShortArray.map(transform: (UShort) -> R): 
+List<R>
+fun <T, R> Sequence<T>.map(transform: (T) -> R): 
+Sequence<R>
+fun <R> CharSequence.map(transform: (Char) -> R): 
+List<R>
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task 
+':composeApp:compileDebugKotlinAndroid'.
+> A failure occurred while executing org.jetbrains.kotl
+in.compilerRunner.GradleCompilerRunnerWithWorkers$Gradl
+eKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log 
+output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+21 actionable tasks: 1 executed, 20 up-to-date
+Configuration cache entry reused.
